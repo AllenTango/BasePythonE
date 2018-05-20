@@ -8,17 +8,16 @@
 
 ## 保留字
 
-||||||
+and|elif|import|in|global
 ---|---|---|---|---|
-and|elif|import|raise|global
-as|else|in|return|nonlocal
+as|else|raise|return|nonlocal
 assert|except|is|try|True
 break|finally|lamba|while|False
 class|for|not|with|None
 continue|from|or|yield|
 def|if|pass|del|
 
-<-- -->
+<!--  如何 隐藏部分文字呢2018.520-->
 ## 数据类型：字符串、整数、浮点数、列表
 
 - 字符串的序号
@@ -28,19 +27,23 @@ def|if|pass|del|
 请|输|入|带|有|符|号|的|温|度|值|：
 0|1|2|3|4|5|6|7|8|9|10|11
 
-- 索引    <字符串>[M]
-- 切片    <字符串>[M:N]
-- 高级切片 <字符串>[M:N:K]
+- 索引    <字符串>[M]    返回特定位置单个字符
+- 切片    <字符串>[M:N]  返回由M到N前的一段字符
+- 高级切片 <字符串>[M:N:K] 以步长K对字符串切片
 
 评估函数 eval(<字符串或字符串变量>)
 `eval('1')   =>  1`
 
+
 ## turtle 库
 
 设置窗口大小，起始位置
+
 `turtle.setup(width, height, startx, starty)`
+
 绝对坐标体系(X,Y)
 `turtle.goto(x, y)`
+
 turtle 空间坐标体系
 ```python
 turtle.fd(d)
@@ -98,5 +101,40 @@ int(x)|将x变成整数，舍弃小数部分
 float(x)|将x变成浮点数
 complex(x)|将x变成复数，增加虚数部分：complex(4) => 4 + 0j
 
+### 字符串处理函数
 
-# 1.01^365 = 37.78    1.019^365 = 962.89
+函数及使用|描述
+---|---
+len(x)|获取字符串长度
+str(x)|将任意类型x转换为字符串形式
+hex(X) 或 oct(x)|整数x的十六进制或八进制小写形式字符串
+chr(u)|x为Unicode编码，返回其对应的字符
+ord(x)|返回字符x的Unicode编码
+
+### 字符串处理方法
+
+> "方法"在编程中是一个专有名词
+
+- "方法"特指 <a>.<b>() 风格中的函数 <b>()
+- 方法本身也是函数，但与<a>有关，
+- 字符串及变量也是<a>，存在一些方法，
+
+*In Python， 一切皆对象*
+
+方法及使用|描述
+---|---
+str.lower() 或 str.upper()|返回字符串副本，且全部为小写/大写
+str.split(sep=None)|返回以sep分割的str的列表
+str.count(sub)|返回字符sub出现的次数
+str.replace(old,new)|返回字符串副本，且所有old的字符换为new字符
+str.center(width[,fillchar])|字符串str根据宽度width居中，fillchar可选<br> `"python".center(20,"=")`<br>结果为`=======python=======`
+str.strip(chars)|返回没有chars的字符串
+str.join(iter)|在iter变量除最后一个元素外，每个元素后加入一个str(可结合split用，)
+
+
+### 字符串类型的格式化
+
+<模版字符串 { <参数序号> : <格式控制标记>} >.format(<逗号分隔的参数>)
+
+# 1.01^365 = 37.78  
+# 1.019^365 = 962.89
