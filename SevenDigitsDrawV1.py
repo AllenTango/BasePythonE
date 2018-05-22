@@ -4,14 +4,19 @@
 # 3. 获得当前系统时间，绘制对应的数码管
 
 import turtle as t
+import time
 
-
-# import time
+# 绘制数码管间隔
+def drawGap():
+    t.pu()
+    t.fd(4)
 
 # 绘制单段数码管
 def drawLine(draw):
+    drawGap()
     t.pendown() if draw else t.penup()
     t.fd(40)
+    drawGap()
     t.right(90)
 
 
@@ -32,8 +37,22 @@ def drawDigit(digit):
 
 # 获取要输出的数字，通过eval()函数将数字转变为整数
 def drawDate(date):
+    # for i in date:
+    #     drawDigit(eval(i))
+    t.pencolor("red")
     for i in date:
-        drawDigit(eval(i))
+        if i == '-':
+            t.write('年', font=("Arial", 24, "normal"))
+            t.pencolor("green")
+            t.fd(35)
+        elif i == '=':
+            t.write('月', font=("Arial", 24, "normal"))
+            t.pencolor("blue")
+            t.fd(35)
+        elif i == '+':
+            t.write('日', font=("Arial", 24, "normal"))
+        else:
+            drawDigit(eval(i))
 
 # 组合模块
 def main():
@@ -41,7 +60,9 @@ def main():
     t.penup()
     t.fd(-300)
     t.pensize(5)
-    drawDate('20181010')
+    # drawDate('20181010')
+    # 查询系统时间，并格式化传入drawDate()函数
+    drawDate(time.strftime('%Y-%m-%d+', time.gmtime()))
     t.hideturtle()
     t.done()
 
