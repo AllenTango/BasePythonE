@@ -5,10 +5,10 @@ import random
 
 # 绘制单个六边形
 def drawHexagon():
-    t.pensize(10)
+    t.pensize(15)
     for i in range(6):
         t.pencolor(random.choice(['blue', 'green', 'red', 'magenta', 'gold', 'pink', 'tomato', 'purple']))
-        t.fd(50)
+        t.fd(100)
         t.right(60)
 
 
