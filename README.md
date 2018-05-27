@@ -445,6 +445,7 @@ def hanoi(n, src, dst, mid):
         count += 1
         hanoi(n-1, mid, dst, src)
 ```
+使用 pyinstaller 转为 可执行文件 `pyinstaller -i Turtle.ico -F pyIn.py`
 
 # 1.01^365 = 37.78  
 # 1.019^365 = 962.89
