@@ -510,5 +510,9 @@ jieba.lcut(s,cut_all=True)|全模式
 jieba.lcut_for_search(s)|搜索引擎模式
 jieba.add_word(w)|向分词词典增加新词w
 
+# wordcloud 库
+
+
+
 # 1.01^365 = 37.78  
 # 1.019^365 = 962.89
