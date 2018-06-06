@@ -512,6 +512,37 @@ jieba.add_word(w)|向分词词典增加新词w
 
 # wordcloud 库
 
+## 文件
+
+- 文件是存储在辅助存储器上的数据序列
+- 文件是数据存储的一种形式，数据的抽象和集合
+- 文件展现形态：文本文件和二进制文件
+
+```python
+# 文本形式打开文件
+tf = open("f.txt", "rt")
+print(tf.readline())
+tf.close()
+```
+
+```python
+<变量名(文件句柄)> = open(<文件名(文件路径和名称)>,<打开模式(文本/二进制, 读 or 写)>)
+a = open( , )
+a.close()
+a.read(size)
+a.readline(size)
+a.readlines(hint)
+-----------------
+a.write(s)
+a.writelines(lines)
+a.seek(offset)
+```
+
+## 实例11：自动轨迹绘制
+
+- 定义数据文件格式(接口)
+- 编写程序，根据文件接口解析参数绘制图形
+- 编制数据文件
 
 
 # 1.01^365 = 37.78  
