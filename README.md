@@ -512,6 +512,29 @@ jieba.add_word(w)|向分词词典增加新词w
 
 # wordcloud 库
 
+使用第三方库前，需要安装 `pip insatll wordcloud`
+
+
+方法|描述
+---|---
+w.generate(txt)|向WordCloud对象w中加载文本txt，<br> 中文需要先分词并组成空格分隔字符串
+w.to_file(filename)|将词云输出为图像文件，.png或.jpg格式
+
+`w = wordcloud.WordCloud(<参数>)`
+
+参数|描述
+---|---
+width|指定词云对象生成图片的宽度，默认400像素
+height|指定词云对象生成图片的高度，默认200像素
+min_font_size|指定词云中字体的最小字号，默认4号
+max_font_size|指定词云中字体的最大字号，根据高度自动调节
+font_step|指定词云中字体字号的步进间隔，默认为1
+font_path|指定字体文件的路径，默认None，处理中文文本需要注意
+max_words|指定词云显示的最大单词数量，默认200
+stop_words|指定词云的排除词列表，即不显示的单词列表
+mask|指定词云形状，默认为长方形，需要引用imread()函数<br> `from scipy.misc import imread` `mk=imread("pic.png")` `w=wordcloud.WordCloud(mask=mk)`
+background_color|指定词云图片的背景颜色，默认为黑色
+
 ## 文件
 
 - 文件是存储在辅助存储器上的数据序列
@@ -532,7 +555,7 @@ a.close()
 a.read(size)
 a.readline(size)
 a.readlines(hint)
------------------
+--------
 a.write(s)
 a.writelines(lines)
 a.seek(offset)
@@ -544,6 +567,36 @@ a.seek(offset)
 - 编写程序，根据文件接口解析参数绘制图形
 - 编制数据文件
 
+| 高维数据 👉️ 键值对
+
+```json
+{
+    "firstName" : "Tian",
+    "lastName" : "Song",
+    "address" : {
+                    "streeAddr" : "中关村南大街5号",
+                    "city" : "北京市",
+                    "zipcode" : "100081"
+    },
+    "professional" : ["Computer Networking", "Security"]
+}
+```
+
+### 数据的操作周期
+
+存储(存储格式) 👈👉️ 表示(数据类型) 👈👉 操作(操作方式)
+
+#### 一维数据
+
+- 一维数据的表示：列表类型(有序)和集合类型(无序)
+- 一维数据的存储：空格分割、逗号分隔、特殊符号分割
+- 一维数据的处理：字符串方法 .split()和.join()
+
+#### 二维数据
+
+- 二维数据的表示：列表类型，其中每个元素也是一个列表
+- CSV 格式：逗号分隔表示一维，按行分隔表示二维
+- 二维数据的处理：for循环 +.split()和.join()
 
 # 1.01^365 = 37.78  
 # 1.019^365 = 962.89
